@@ -1,4 +1,4 @@
-import 'package:demo_logger/logme.dart';
+import 'package:logme/logme.dart';
 import 'package:dotenv/dotenv.dart';
 
 void main() async {
