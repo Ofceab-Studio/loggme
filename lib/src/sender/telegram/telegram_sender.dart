@@ -14,7 +14,7 @@ class TelegramSender implements Sender {
   TelegramSender(this.channelsSenders, this._httpClient);
 
   @override
-  Future<Either<LogError, void>> send(LogMessage message) async {
+  Future<Either<LogError, void>> send(loggmessage message) async {
     return LogError.tryCatch(() async {
       final channelsSendings =
           channelsSenders.map((channelSender) => _send(channelSender, message));
@@ -23,7 +23,7 @@ class TelegramSender implements Sender {
   }
 
   Future<void> _send(
-      TelegramChannelSender channelSender, LogMessage message) async {
+      TelegramChannelSender channelSender, loggmessage message) async {
     final uri =
         "https://api.telegram.org/bot${channelSender.botId}/sendMessage?${_getMessage(message.message, channelSender.chatId)}";
     final response = await _httpClient.post(Uri.parse(uri));

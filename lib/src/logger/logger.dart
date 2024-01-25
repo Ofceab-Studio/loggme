@@ -40,23 +40,23 @@ class Logger {
 
   /// Send logs
   Future<List<Either<LogError, void>>> logs(
-      {TelegramLogMessage? telegramLogMessage,
-      SlackLogMessage? slackLogMessage,
-      LogMessage? customMessage}) async {
+      {Telegramloggmessage? telegramloggmessage,
+      Slackloggmessage? slackloggmessage,
+      loggmessage? customMessage}) async {
     httpClient ??= http.Client();
     final _futures = <Future<Either<LogError, void>>>[];
     if (slackChannelsSenders != null &&
         slackChannelsSenders!.isNotEmpty &&
-        slackLogMessage != null) {
+        slackloggmessage != null) {
       _futures.add(SlackSender(slackChannelsSenders!, httpClient!)
-          .send(slackLogMessage));
+          .send(slackloggmessage));
     }
 
     if (telegramChannelsSenders != null &&
         telegramChannelsSenders!.isNotEmpty &&
-        telegramLogMessage != null) {
+        telegramloggmessage != null) {
       _futures.add(TelegramSender(telegramChannelsSenders!, httpClient!)
-          .send(telegramLogMessage));
+          .send(telegramloggmessage));
     }
 
     if (customSenders != null &&

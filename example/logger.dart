@@ -1,4 +1,4 @@
-import 'package:logme/logme.dart';
+import 'package:loggme/loggme.dart';
 import 'package:dotenv/dotenv.dart';
 
 void main() async {
@@ -26,18 +26,18 @@ void main() async {
   /// Send o Telegram only
   Logger.sendOnTelegram(telegramChannelsSenders);
 
-  final telegramMessage = TelegramLogMessage()
+  final telegramMessage = Telegramloggmessage()
     ..addNormalText('Hello mans.\n')
     ..addBoldText("Here is a litle logger build by")
     ..addMention('Ofceab Studio');
 
-  final slackMessage = SlackLogMessage()
+  final slackMessage = Slackloggmessage()
     ..addNormalText('Hello mans.\n')
     ..addBoldText("Here is a litle logger build by")
     ..addMention('Ofceab Studio');
 
   final responses = await logger.logs(
-      slackLogMessage: slackMessage, telegramLogMessage: telegramMessage);
+      slackloggmessage: slackMessage, telegramloggmessage: telegramMessage);
 
   responses.forEach((log) {
     if (log.isLeft()) {

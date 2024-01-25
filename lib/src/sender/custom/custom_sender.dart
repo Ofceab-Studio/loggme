@@ -5,12 +5,12 @@ import '../../error/error.dart';
 import '../../formatters/log_message.dart';
 import '../sender.dart';
 
-typedef SendEndpointFunc = Future<Response> Function(LogMessage message);
+typedef SendEndpointFunc = Future<Response> Function(loggmessage message);
 
 abstract class CustomSender implements Sender {
   /// This method defines where and how send logs through HTTP
   Future<Response> sendEndpoint(
-      LogMessage message, SendEndpointFunc sendEndpointFunc);
+      loggmessage message, SendEndpointFunc sendEndpointFunc);
 }
 
 class GenericSender implements CustomSender {
@@ -18,13 +18,13 @@ class GenericSender implements CustomSender {
 
   GenericSender(this.sendFunc);
   @override
-  Future<Either<LogError, void>> send(LogMessage message) {
+  Future<Either<LogError, void>> send(loggmessage message) {
     return LogError.tryCatch(() => sendEndpoint(message, sendFunc));
   }
 
   @override
   Future<Response> sendEndpoint(
-      LogMessage message, SendEndpointFunc sendEndpointFunc) {
+      loggmessage message, SendEndpointFunc sendEndpointFunc) {
     return sendEndpointFunc(message);
   }
 }

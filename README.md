@@ -1,4 +1,4 @@
-# logme
+# loggme
 
 _A litle package be relax when your apps are running on production. Allways receive logs about what happen there through Telegram, slack and any other http REST API._
 
@@ -35,18 +35,18 @@ void main() async {
   /// Send o Telegram only
   Logger.sendOnTelegram(telegramChannelsSenders);
 
-  final telegramMessage = TelegramLogMessage()
+  final telegramMessage = Telegramloggmessage()
     ..addNormalText('Hello mans.\n')
     ..addBoldText("Here is a litle logger build by")
     ..addMention('Ofceab Studio');
 
-  final slackMessage = SlackLogMessage()
+  final slackMessage = Slackloggmessage()
     ..addNormalText('Hello mans.\n')
     ..addBoldText("Here is a litle logger build by")
     ..addMention('Ofceab Studio');
 
   final responses = await logger.logs(
-      slackLogMessage: slackMessage, telegramLogMessage: telegramMessage);
+      slackloggmessage: slackMessage, telegramloggmessage: telegramMessage);
 
   responses.forEach((log) {
     if (log.isLeft()) {
@@ -57,4 +57,4 @@ void main() async {
 ```
 
 ## Issues
-Feel you free to open issue [here](https://github.com/Ofceab-Studio/logme/issues)
+Feel you free to open issue [here](https://github.com/Ofceab-Studio/loggme/issues)
