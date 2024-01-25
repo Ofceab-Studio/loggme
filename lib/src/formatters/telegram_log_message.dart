@@ -1,6 +1,6 @@
 import 'log_message.dart';
 
-class Telegramloggmessage implements loggmessage {
+class TelegramLoggMessage implements LoggMessage {
   String _message = '';
 
   @override

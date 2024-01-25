@@ -15,7 +15,7 @@ class SlackSender implements Sender {
   SlackSender(this.channelsSenders, this._httpClient);
 
   @override
-  Future<Either<LogError, void>> send(loggmessage message) async {
+  Future<Either<LogError, void>> send(LoggMessage message) async {
     return LogError.tryCatch(() async {
       final channelsSendings =
           channelsSenders.map((channelSender) => _send(channelSender, message));
@@ -24,7 +24,7 @@ class SlackSender implements Sender {
   }
 
   Future<void> _send(
-      SlackChannelSender channelSender, loggmessage message) async {
+      SlackChannelSender channelSender, LoggMessage message) async {
     final uri = "https://slack.com/api/chat.postMessage";
     final response = await _httpClient.post(Uri.parse(uri),
         headers: _getAuthorization(channelSender),

@@ -1,6 +1,6 @@
 import 'log_message.dart';
 
-class Slackloggmessage implements loggmessage {
+class SlackLoggMessage implements LoggMessage {
   String _message = '';
 
   @override

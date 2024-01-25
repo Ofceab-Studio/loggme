@@ -6,7 +6,8 @@ abstract class LogError {
   /// Error that occured
   String get error;
 
-  static Future<Either<LogError, T>> tryCatch<T>(T Function() fn) async {
+  static Future<Either<LogError, T>> tryCatch<T>(
+      Future<T> Function() fn) async {
     try {
       return right(await fn());
     } catch (e, stackTrace) {
