@@ -20,15 +20,21 @@ void main() async {
       slackChannelsSenders: slackChannelsSenders,
       telegramChannelsSenders: telegramChannelsSenders);
 
+  /// Send o Slack only
+  Logger.sendOnSlack(slackChannelsSenders);
+
+  /// Send o Telegram only
+  Logger.sendOnTelegram(telegramChannelsSenders);
+
   final telegramMessage = TelegramLogMessage()
-    ..addNormalText('Bonjours Mans.\n')
-    ..addBoldText("Ici le logger du Ofceab Studio build par ")
-    ..addMention('yaya');
+    ..addNormalText('Hello mans.\n')
+    ..addBoldText("Here is a litle logger build by")
+    ..addMention('Ofceab Studio');
 
   final slackMessage = SlackLogMessage()
-    ..addNormalText('Bonjours Mans. Ici le logger du Studio build par ')
-    ..addBoldText("Ici le logger du Ofceab Studio build par")
-    ..addMention('yaya');
+    ..addNormalText('Hello mans.\n')
+    ..addBoldText("Here is a litle logger build by")
+    ..addMention('Ofceab Studio');
 
   final responses = await logger.logs(
       slackLogMessage: slackMessage, telegramLogMessage: telegramMessage);
