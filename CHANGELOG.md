@@ -1,3 +1,7 @@
+#1.0.1
+
+- Added supported platforms
+
 #1.0.0
 
 - Support logging through telegram
