@@ -1,10 +1,5 @@
+import 'package:demo_logger/logme.dart';
 import 'package:dotenv/dotenv.dart';
-
-import '../src/formatters/slack_log_message.dart';
-import '../src/formatters/telegram_log_message.dart';
-import '../src/logger/logger.dart';
-import '../src/sender/slack/slack_channel_sender.dart';
-import '../src/sender/telegram/telegram_channel_sender.dart';
 
 void main() async {
   final dotEnv = DotEnv()..load();

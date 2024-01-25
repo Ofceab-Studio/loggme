@@ -1,16 +1,13 @@
 import 'package:dartz/dartz.dart';
-
 import '../error/error.dart';
 import '../formatters/log_message.dart';
 import '../formatters/slack_log_message.dart';
 import '../formatters/telegram_log_message.dart';
 import '../sender/custom/custom_sender.dart';
-import '../sender/sender.dart';
 import '../sender/slack/slack_channel_sender.dart';
 import '../sender/slack/slack_sender.dart';
 import '../sender/telegram/telegram_channel_sender.dart';
 import 'package:http/http.dart' as http;
-
 import '../sender/telegram/telegram_sender.dart';
 
 class Logger {
