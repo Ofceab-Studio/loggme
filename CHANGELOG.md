@@ -1,3 +1,7 @@
+#1.0.2
+
+- Fixed analysis warning
+
 #1.0.1
 
 - Added supported platforms
