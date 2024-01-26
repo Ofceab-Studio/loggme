@@ -11,10 +11,10 @@ class TelegramLoggMessage
         HasMentionStyle,
         HasNormalStyle,
         HasUnderLineStyle {
-  String _message = '';
+  String _message = """""";
 
   @override
-  String get message => _message.replaceAll(RegExp(r'\.'), '\\.');
+  String get message => escapeMarkdown(_message);
 
   @override
   void addBoldText(String text) {
@@ -23,7 +23,7 @@ class TelegramLoggMessage
 
   @override
   void addCodeText(String text) {
-    _message += "`$text`";
+    _message += "```dart $text```";
   }
 
   @override
@@ -45,4 +45,36 @@ class TelegramLoggMessage
   void addNormalText(String text) {
     _message += text;
   }
+}
+
+final List<String> _specialChars = [
+  '\\',
+  '_',
+  '*',
+  '[',
+  ']',
+  '(',
+  ')',
+  '~',
+  '`',
+  '>',
+  '<',
+  '&',
+  '+',
+  '-',
+  '=',
+  '|',
+  '{',
+  '}',
+  '.',
+  '!'
+];
+
+String escapeMarkdown(String text) {
+  String updateText = text;
+  _specialChars.map((char) {
+    updateText = updateText.replaceAll(char, '\\$char');
+  });
+  updateText = updateText.replaceAll('#', '%23');
+  return updateText;
 }
