@@ -1,6 +1,16 @@
+import 'package:loggme/src/formatters/styles.dart';
+
 import 'log_message.dart';
 
-class TelegramLoggMessage implements LoggMessage {
+class TelegramLoggMessage
+    implements
+        LoggMessage,
+        HasBoldStyle,
+        HasCodeStyle,
+        HasItalicStyle,
+        HasMentionStyle,
+        HasNormalStyle,
+        HasUnderLineStyle {
   String _message = '';
 
   @override

@@ -1,12 +1,16 @@
-#1.0.2
+# 1.0.3
+
+- Code refactoring
+
+# 1.0.2
 
 - Fixed analysis warning
 
-#1.0.1
+# 1.0.1
 
 - Added supported platforms
 
-#1.0.0
+# 1.0.0
 
 - Support logging through telegram
 - Support logging through slack

@@ -1,6 +1,16 @@
+import 'package:loggme/src/formatters/styles.dart';
+
 import 'log_message.dart';
 
-class SlackLoggMessage implements LoggMessage {
+class SlackLoggMessage
+    implements
+        LoggMessage,
+        HasBoldStyle,
+        HasCodeStyle,
+        HasItalicStyle,
+        HasMentionStyle,
+        HasNormalStyle,
+        HasUnderLineStyle {
   String _message = '';
 
   @override
