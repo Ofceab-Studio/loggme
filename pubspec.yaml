@@ -3,7 +3,7 @@ description: "A litle package be relax when your apps are running on production.
 
 homepage: https://github.com/Ofceab-Studio/loggme
 repository: https://github.com/Ofceab-Studio/loggme
-version: 1.0.3
+version: 1.0.4
 
 environment:
   sdk: '^3.0.0'

@@ -1,6 +1,7 @@
 # 1.0.4
 
 - Support log send through Telegram topics using *messageThreadId* on *TelegramChannelSender*  
+- Fixed Telegram code formatting   
 
 # 1.0.3
 
