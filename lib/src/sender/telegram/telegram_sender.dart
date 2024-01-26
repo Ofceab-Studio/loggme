@@ -25,13 +25,15 @@ class TelegramSender implements Sender {
   Future<void> _send(
       TelegramChannelSender channelSender, LoggMessage message) async {
     final uri =
-        "https://api.telegram.org/bot${channelSender.botId}/sendMessage?${_getMessage(message.message, channelSender.chatId)}";
+        "https://api.telegram.org/bot${channelSender.botId}/sendMessage?${_getMessage(message.message, channelSender.chatId, channelSender.messageThreadId)}";
     final response = await _httpClient.post(Uri.parse(uri));
     if (response.statusCode != HttpStatus.ok) {
       throw GenericeError(response.statusCode.toString(), response.body);
     }
   }
 
-  String _getMessage(String message, String chatId) =>
-      "text=$message&&chat_id=$chatId&parse_mode=MarkdownV2";
+  String _getMessage(String message, String chatId, String? messageThreadId) =>
+      messageThreadId != null
+          ? "text=$message&&chat_id=-100$chatId&message_thread_id=$messageThreadId&parse_mode=MarkdownV2"
+          : "text=$message&&chat_id=$chatId&parse_mode=MarkdownV2";
 }
