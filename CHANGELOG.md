@@ -1,3 +1,7 @@
+# 1.0.5
+
+- Fixed Telegram specials characters support in message 
+
 # 1.0.4
 
 - Support log send through Telegram topics using *messageThreadId* on *TelegramChannelSender*  
