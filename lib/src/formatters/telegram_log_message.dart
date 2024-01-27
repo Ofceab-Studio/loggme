@@ -13,68 +13,60 @@ class TelegramLoggMessage
         HasUnderLineStyle {
   String _message = """""";
 
+  final _regEx = RegExp(r'[_[\]()~>`#+\-=|{}.!]');
+
   @override
-  String get message => escapeMarkdown(_message);
+  String get message => _message;
 
   @override
   void addBoldText(String text) {
-    _message += '*$text*';
+    _message += _escapedSpecialCharacters(text, stylyingCharacter: '*');
   }
 
   @override
   void addCodeText(String text) {
-    _message += "```dart $text```";
+    _message += _replaceAllSpecialCharsWithEncodedChars("```dart\n$text```");
   }
 
   @override
   void addItalicText(String text) {
-    _message += "_${text}_";
+    _message += _escapedSpecialCharacters(text, stylyingCharacter: '_');
   }
 
   @override
   void addUnderlineText(String text) {
-    _message += "__${text}__";
+    _message += _escapedSpecialCharacters(text, stylyingCharacter: '__');
   }
 
   @override
   void addMention(String user) {
-    _message += "@$user";
+    _message += _escapedSpecialCharacters("@$user", stylyingCharacter: '');
   }
 
   @override
   void addNormalText(String text) {
-    _message += text;
+    _message += _escapedSpecialCharacters(text, stylyingCharacter: '');
   }
-}
 
-final List<String> _specialChars = [
-  '\\',
-  '_',
-  '*',
-  '[',
-  ']',
-  '(',
-  ')',
-  '~',
-  '`',
-  '>',
-  '<',
-  '&',
-  '+',
-  '-',
-  '=',
-  '|',
-  '{',
-  '}',
-  '.',
-  '!'
-];
+  String _escapedSpecialCharacters(String text,
+      {required String stylyingCharacter}) {
+    String _escapedText = '';
 
-String escapeMarkdown(String text) {
-  String updateText = text;
-  _specialChars.map((char) {
-    updateText = updateText.replaceAll(char, '\\$char');
-  });
-  updateText = updateText.replaceAll('#', '%23');
-  return updateText;
+    // Escape all specials chars
+    _escapedText = text.replaceAllMapped(_regEx, (match) {
+      final encodedChar =
+          '%${match[0]?.codeUnitAt(0).toRadixString(16).padLeft(2, '0')}';
+      return '\\${encodedChar}';
+    });
+
+    _escapedText = '$stylyingCharacter$_escapedText$stylyingCharacter';
+
+    return _replaceAllSpecialCharsWithEncodedChars(_escapedText);
+  }
+
+  String _replaceAllSpecialCharsWithEncodedChars(String text) {
+    return text.replaceAllMapped(_regEx, (match) {
+      return '%${match[0]?.codeUnitAt(0).toRadixString(16).padLeft(2, '0')}';
+    });
+  }
 }

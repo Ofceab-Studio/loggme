@@ -32,11 +32,8 @@ class TelegramSender implements Sender {
     }
   }
 
-  String _getMessage(String message, String chatId, String? messageThreadId) {
-    final messageQuery = messageThreadId != null
-        ? "text=${message}&chat_id=${chatId}&message_thread_id=${messageThreadId}&parse_mode=MarkdownV2"
-        : "text=${message}&chat_id=${chatId}&parse_mode=MarkdownV2";
-
-    return messageQuery;
-  }
+  String _getMessage(String message, String chatId, String? messageThreadId) =>
+      messageThreadId != null
+          ? "text=${message}&chat_id=${chatId}&message_thread_id=${messageThreadId}&parse_mode=MarkdownV2"
+          : "text=${message}&chat_id=${chatId}&parse_mode=MarkdownV2";
 }
