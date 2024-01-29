@@ -1,3 +1,7 @@
+# 1.0.6
+
+- Downgraded http *1.2.0* to *1.1.0*  
+
 # 1.0.5
 
 - Fixed Telegram specials characters support in message 
