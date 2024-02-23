@@ -24,8 +24,9 @@ class TelegramLoggMessage
   }
 
   @override
-  void addCodeText(String text) {
-    _message += _replaceAllSpecialCharsWithEncodedChars("```dart\n$text```");
+  void addCodeText(String text, {String language = 'dart'}) {
+    _message +=
+        _replaceAllSpecialCharsWithEncodedChars("```$language\n$text```");
   }
 
   @override

@@ -1,5 +1,5 @@
 # 1.0.6
-
+- Support custom telegram language as suggested [#1](https://github.com/Ofceab-Studio/loggme/issues/1)
 - Downgraded http *1.2.0* to *1.1.0*  
 
 # 1.0.5
