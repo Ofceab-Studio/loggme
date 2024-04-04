@@ -1,11 +1,11 @@
 # loggme
 
-_A litle package be relax when your apps are running on production. Allways receive logs about what happen there through Telegram, slack and any other http REST API._
+_A little package be relaxed when your apps are running on production. Always receive logs about what happens there through Telegram, slack, and any other HTTP REST API._
 
 ## Features
 
-- [x] Support logging through telegram
-- [x] Support logging through slack 
+- [x] Support logging through Telegram
+- [x] Support logging through Slack 
 - [x] Support logging through custom REST API endpoints 
 
 ## Example
@@ -29,10 +29,10 @@ void main() async {
       slackChannelsSenders: slackChannelsSenders,
       telegramChannelsSenders: telegramChannelsSenders);
 
-  /// Send o Slack only
+  /// Send to Slack only
   Logger.sendOnSlack(slackChannelsSenders);
 
-  /// Send o Telegram only
+  /// Send to Telegram only
   Logger.sendOnTelegram(telegramChannelsSenders);
 
   final telegramMessage = TelegramLoggMessage()
