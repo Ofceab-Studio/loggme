@@ -1,14 +1,14 @@
 name: loggme
-description: "A litle package be relax when your apps are running on production. Allways receive logs about what happen there through Telegram, slack and any other http REST API."
+description: "A litle package be relax when your apps are running on production. Always receive logs about what happen there through Telegram, slack and any other http REST API."
 
 homepage: https://github.com/Ofceab-Studio/loggme
 repository: https://github.com/Ofceab-Studio/loggme
-version: 1.0.6
+version: 1.0.7
 
 environment:
   sdk: '^3.0.0'
 dependencies:
-  auto_exporter: ^2.0.0
+  auto_exporter: ^3.5.0
   dartz: ^0.10.1
   dotenv: ^4.2.0
   http: ^1.1.0
