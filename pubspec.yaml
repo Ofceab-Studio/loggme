@@ -6,9 +6,10 @@ repository: https://github.com/Ofceab-Studio/loggme
 version: 1.0.7
 
 environment:
-  sdk: '^3.0.0'
+  sdk: '^3.10.0'
+  
 dependencies:
-  auto_exporter: ^3.5.0
+  auto_exporter: ^4.2.0
   dartz: ^0.10.1
   dotenv: ^4.2.0
   http: ^1.1.0
